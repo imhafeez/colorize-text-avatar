@@ -22,7 +22,7 @@ class TextAvatar extends StatelessWidget {
       this.backgroundColor,
       this.shape,
       this.numberLetters,
-      this.size,
+      this.size = 32,
       this.fontWeight = FontWeight.bold,
       this.fontFamily,
       this.fontSize = 16,
@@ -33,7 +33,7 @@ class TextAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     shape = (shape == null) ? Shape.Rectangle : shape;
-    size = (size == null || size! < 32.0) ? 48.0 : size;
+    // size = (size == null || size! < 32.0) ? 48.0 : size;
     backgroundColor = _colorBackgroundConfig();
     textColor = _colorTextConfig();
     return _textDisplay();
