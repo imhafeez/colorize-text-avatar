@@ -34,19 +34,19 @@ class TextAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     shape = (shape == null) ? Shape.Rectangle : shape;
     // size = (size == null || size! < 32.0) ? 48.0 : size;
-    backgroundColor = _colorBackgroundConfig();
+    backgroundColor = _colorBackgroundConfig(context);
     textColor = _colorTextConfig();
     return _textDisplay();
   }
 
-  Color _colorBackgroundConfig() {
+  Color _colorBackgroundConfig(BuildContext context) {
     if (RegExp(r'[A-Z]|').hasMatch(
       _textConfiguration(),
     )) {
       backgroundColor =
           colorData[_textConfiguration()[0].toLowerCase().toString()];
     }
-    return backgroundColor!;
+    return backgroundColor ?? Theme.of(context).primaryColor;
   }
 
   Color _colorTextConfig() {
